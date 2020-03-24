@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a9ef2fde-153a-432e-a852-76ae150d7906" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1ZYpCpE64gCMAVHVQR6jCkPuSEC" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+  </component>
+  <component name="RunManager" selected="Application.MainClass">
+    <configuration name="MainClass" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <envs>
+        <env name="AWS_ACCESS_KEY_ID" value="AKIAJULRPCWY2EDI3DNQ" />
+        <env name="AWS_SECRET_ACCESS_KEY" value="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" />
+      </envs>
+      <option name="MAIN_CLASS_NAME" value="MainClass" />
+      <module name="telegrammar" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PutItem" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <envs>
+        <env name="AWS_ACCESS_KEY_ID" value="AKIAJULRPCWY2EDI3DNQ" />
+        <env name="AWS_SECRET_ACCESS_KEY" value="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" />
+      </envs>
+      <option name="MAIN_CLASS_NAME" value="PutItem" />
+      <module name="telegrammar" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.MainClass" />
+      <item itemvalue="Application.PutItem" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MainClass" />
+        <item itemvalue="Application.PutItem" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a9ef2fde-153a-432e-a852-76ae150d7906" name="Default Changelist" comment="" />
+      <created>1585025756364</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1585025756364</updated>
+      <workItem from="1585025760394" duration="11170000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="582" y="214" width="847" height="677" key="#Project_Structure" timestamp="1585049987605">
+      <screen x="55" y="27" width="1865" height="1053" />
+    </state>
+    <state x="582" y="214" width="847" height="677" key="#Project_Structure/55.27.1865.1053@55.27.1865.1053" timestamp="1585049987605" />
+    <state x="445" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585050076180">
+      <screen x="55" y="27" width="1865" height="1053" />
+    </state>
+    <state x="445" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog/55.27.1865.1053@55.27.1865.1053" timestamp="1585050076180" />
+    <state x="828" y="444" width="308" height="216" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1585029835062">
+      <screen x="55" y="27" width="1865" height="1053" />
+    </state>
+    <state x="828" y="444" width="308" height="216" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/55.27.1865.1053@55.27.1865.1053" timestamp="1585029835062" />
+    <state x="724" y="330" width="515" height="444" key="EnvironmentVariablesDialog" timestamp="1585050075106">
+      <screen x="55" y="27" width="1865" height="1053" />
+    </state>
+    <state x="724" y="330" width="515" height="444" key="EnvironmentVariablesDialog/55.27.1865.1053@55.27.1865.1053" timestamp="1585050075106" />
+    <state width="1819" height="278" key="GridCell.Tab.0.bottom" timestamp="1585052006162">
+      <screen x="55" y="27" width="1865" height="1053" />
+    </state>
+    <state width="1819" height="278" key="GridCell.Tab.0.bottom/55.27.1865.1053@55.27.1865.1053" timestamp="1585052006162" />
+    <state width="1819" height="278" key="GridCell.Tab.0.center" timestamp="1585052006161">
+      <screen x="55" y="27" width="1865" height="1053" />
+    </state>
+    <state width="1819" height="278" key="GridCell.Tab.0.center/55.27.1865.1053@55.27.1865.1053" timestamp="1585052006161" />
+    <state width="1819" height="278" key="GridCell.Tab.0.left" timestamp="1585052006161">
+      <screen x="55" y="27" width="1865" height="1053" />
+    </state>
+    <state width="1819" height="278" key="GridCell.Tab.0.left/55.27.1865.1053@55.27.1865.1053" timestamp="1585052006161" />
+    <state width="1819" height="278" key="GridCell.Tab.0.right" timestamp="1585052006162">
+      <screen x="55" y="27" width="1865" height="1053" />
+    </state>
+    <state width="1819" height="278" key="GridCell.Tab.0.right/55.27.1865.1053@55.27.1865.1053" timestamp="1585052006162" />
+    <state width="1819" height="344" key="GridCell.Tab.1.bottom" timestamp="1585050924123">
+      <screen x="55" y="27" width="1865" height="1053" />
+    </state>
+    <state width="1819" height="344" key="GridCell.Tab.1.bottom/55.27.1865.1053@55.27.1865.1053" timestamp="1585050924123" />
+    <state width="1819" height="344" key="GridCell.Tab.1.center" timestamp="1585050924122">
+      <screen x="55" y="27" width="1865" height="1053" />
+    </state>
+    <state width="1819" height="344" key="GridCell.Tab.1.center/55.27.1865.1053@55.27.1865.1053" timestamp="1585050924122" />
+    <state width="1819" height="344" key="GridCell.Tab.1.left" timestamp="1585050924122">
+      <screen x="55" y="27" width="1865" height="1053" />
+    </state>
+    <state width="1819" height="344" key="GridCell.Tab.1.left/55.27.1865.1053@55.27.1865.1053" timestamp="1585050924122" />
+    <state width="1819" height="344" key="GridCell.Tab.1.right" timestamp="1585050924123">
+      <screen x="55" y="27" width="1865" height="1053" />
+    </state>
+    <state width="1819" height="344" key="GridCell.Tab.1.right/55.27.1865.1053@55.27.1865.1053" timestamp="1585050924123" />
+    <state x="476" y="187" key="SettingsEditor" timestamp="1585049969140">
+      <screen x="55" y="27" width="1865" height="1053" />
+    </state>
+    <state x="476" y="187" key="SettingsEditor/55.27.1865.1053@55.27.1865.1053" timestamp="1585049969140" />
+    <state width="932" height="527" key="XDebugger.FullValuePopup" timestamp="1585044688826">
+      <screen x="55" y="27" width="1865" height="1053" />
+    </state>
+    <state width="932" height="527" key="XDebugger.FullValuePopup/55.27.1865.1053@55.27.1865.1053" timestamp="1585044688826" />
+    <state x="759" y="332" width="446" height="440" key="chooseDestDirectoryDialog" timestamp="1585031295138">
+      <screen x="55" y="27" width="1865" height="1053" />
+    </state>
+    <state x="759" y="332" width="446" height="440" key="chooseDestDirectoryDialog/55.27.1865.1053@55.27.1865.1053" timestamp="1585031295138" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/updateshandlers/ChannelHandlers.java</url>
+          <line>67</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Bot.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/MainClass.java</url>
+          <line>76</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
