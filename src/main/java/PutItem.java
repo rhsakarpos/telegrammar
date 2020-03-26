@@ -78,7 +78,7 @@ public class PutItem {
 
         System.out.format("Adding \"%s\" to \"%s\"", timestamp, table_name);
         if (extra_fields.size() > 0) {
-            System.out.println("Additional fields:");
+            //System.out.println("Additional fields:");
             for (String[] field : extra_fields) {
                 System.out.format("  %s: %s\n", field[0], field[1]);
             }
@@ -106,7 +106,7 @@ public class PutItem {
             System.err.println(e.getMessage());
             System.exit(1);
         }
-        System.out.println("Done!");
+        //System.out.println("Done!");
     }
 
     public static void writeToDynamoDB(Map<String, String> item_values) {
@@ -135,6 +135,6 @@ public class PutItem {
             System.err.println(e.getMessage());
             System.exit(1);
         }
-        System.out.println("Done!");
+        //System.out.println("Done!");
     }
 }

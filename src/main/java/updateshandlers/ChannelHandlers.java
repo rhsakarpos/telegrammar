@@ -66,7 +66,7 @@ public class ChannelHandlers extends TelegramLongPollingBot {
 
     private void handleIncomingMessage(Message message) throws InvalidObjectException {
         int state = userState.getOrDefault(message.getFrom().getId(), 0);
-        System.out.println(message.getText());
+        //System.out.println(message.getText());
         switch (state) {
             case WAITINGCHANNEL:
                 onWaitingChannelMessage(message);

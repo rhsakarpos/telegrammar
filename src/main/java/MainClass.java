@@ -1,33 +1,84 @@
 import com.pengrad.telegrambot.Callback;
 import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.UpdatesListener;
+import com.pengrad.telegrambot.model.Message;
 import com.pengrad.telegrambot.model.Update;
+import com.pengrad.telegrambot.model.request.ForceReply;
+import com.pengrad.telegrambot.model.request.ParseMode;
 import com.pengrad.telegrambot.request.GetUpdates;
+import com.pengrad.telegrambot.request.SendMessage;
 import com.pengrad.telegrambot.response.GetUpdatesResponse;
+import com.pengrad.telegrambot.response.SendResponse;
 import org.telegram.telegrambots.ApiContextInitializer;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
-import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
-import org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException;
-import updateshandlers.*;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.logging.ConsoleHandler;
-import java.util.logging.Level;
+import java.util.*;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
 
 public class MainClass {
     private static final String LOGTAG = "MAIN";
 
     public static void main(String[] args) {
 
+        MessagesMapHandler messagesMapHandler = new MessagesMapHandler();
+        MessagesTimeHandler messagesTimeHandler = new MessagesTimeHandler();
+
         try {
             ApiContextInitializer.init();
             TelegramBotsApi telegramBotsApi = new TelegramBotsApi();
             //createTelegramBotsApi();
             try {
+                TelegramBot bot = new TelegramBot("1030843207:AAHahVtGQcCLmbe0SsYTRHEF-h4zy5iz-wk");
+                ScheduledMessagesTimeUpdaterTask timeUpdaterTask = new ScheduledMessagesTimeUpdaterTask(messagesTimeHandler, messagesMapHandler, bot);
+                BlockingQueue queueMessagesToAdd = new ArrayBlockingQueue(500);
+                ThreadPoolExecutor tpeAddMessages = (ThreadPoolExecutor) Executors.newFixedThreadPool(10);
+
+                BlockingQueue queueMessagesToSend = new ArrayBlockingQueue(500);
+                ThreadPoolExecutor tpeSendMessages = (ThreadPoolExecutor) Executors.newFixedThreadPool(10);
+
+                new Timer().schedule(timeUpdaterTask, 0, 10000);
+
+                List<String> keywords = new ArrayList<>();
+                keywords.add("?");
+
+                keywords.add("please");
+                keywords.add("Please");
+
+                keywords.add("who");
+                keywords.add("Who");
+
+                keywords.add("what");
+                keywords.add("What");
+
+                keywords.add("why");
+                keywords.add("Why");
+
+                keywords.add("when");
+                keywords.add("When");
+
+                keywords.add("where");
+                keywords.add("Where");
+
+                keywords.add("Can");
+                keywords.add("can");
+
+                keywords.add("how");
+                keywords.add("How");
+
+                keywords.add("tell");
+                keywords.add("Tell");
+
+                keywords.add("does");
+                keywords.add("Does");
+
+                keywords.add("know");
+                keywords.add("Know");
+
                 // Register long polling bots. They work regardless type of TelegramBotsApi we are creating
                 //telegramBotsApi.registerBot(new ChannelHandlers());
                 /*telegramBotsApi.registerBot(new DirectionsHandlers());
@@ -41,8 +92,12 @@ public class MainClass {
 
                 //telegramBotsApi.registerBot(new Bot());
                 // Create your bot passing the token received from @BotFather
-                TelegramBot bot = new TelegramBot("1030843207:AAHahVtGQcCLmbe0SsYTRHEF-h4zy5iz-wk");
-                GetUpdates getUpdates = new GetUpdates().limit(1000).offset(0).timeout(0);
+
+                GetUpdates getUpdates = new GetUpdates().limit(100000).offset(0).timeout(0);
+
+                //long chatId = -1001217508830L;
+
+
                 // async
                 final GetUpdatesResponse updatesResponse = bot.execute(getUpdates);
                 bot.execute(getUpdates, new Callback<GetUpdates, GetUpdatesResponse>() {
@@ -51,9 +106,13 @@ public class MainClass {
                         List<com.pengrad.telegrambot.model.Update> updates = updatesResponse.updates();
                         for (Update u : updates) {
                             if (u.message() != null) {
-                                System.out.println(u.message().text());
+                                //System.out.println("response message");
+                                //System.out.println(u.message().text());
                             }
-                            System.out.println(u.channelPost().text());
+                            if (u.channelPost() != null) {
+                                //System.out.println("response channel post");
+                                //System.out.println(u.channelPost().text());
+                            }
                         }
                     }
 
@@ -69,17 +128,56 @@ public class MainClass {
 
                         for (Update u : updates) {
                             if (u.message() != null) {
-                                System.out.println(u.message().text());
+                                //System.out.println("update process message");
+                                //System.out.println(u.message().text());
+
+                                queueMessagesToAdd.add(u.message());
+                                AddMessageTask addMessageTask = new AddMessageTask(queueMessagesToAdd, messagesMapHandler, messagesTimeHandler, keywords);
+                                tpeAddMessages.execute(addMessageTask);
+
+                                /*if (u.message().replyToMessage() != null) {
+                                    System.out.println("\t\t is reply");
+                                    // update reply count
+                                    int replyToMessageId = u.message().replyToMessage().messageId();
+                                    *//*int resCount = notRepliedMessageTask.mapMessageIdVsResponses.get(replyToMessageId);
+                                        resCount = resCount + 1;
+                                        notRepliedMessageTask.mapMessageIdVsResponses.put(replyToMessageId, resCount);*//*
+                                    mapMessageIdVsMessages.remove(replyToMessageId);
+                                } else {
+                                    System.out.println("\t\t is first message");
+                                    // add to map
+                                    mapMessageIdVsMessages.put(u.message().messageId(), u.message());
+                                }*/
+
+
+                                Map<String, String> itemValues = new HashMap<>();
+                                if (u.message().text() != null) {
+                                    itemValues.put("channelmessagetext", u.message().text());
+                                    if (u.message().from().firstName() != null) {
+                                        itemValues.put("username", u.message().from().firstName());
+                                    }
+                                    if (u.message().chat().title() != null) {
+                                        itemValues.put("title", u.message().chat().title());
+                                    }
+
+                                    //itemValues.put("location", u.channelPost().location().toString());
+                                    //System.out.println(itemValues);
+                                    //PutItem.writeToDynamoDB(itemValues);
+                                }
+
                             }
                             //System.out.println(u.channelPost().text());
-                            Map<String, String> itemValues = new HashMap<>();
-                            itemValues.put("channelmessagetext", u.channelPost().text());
-                            itemValues.put("username", u.channelPost().chat().username());
-                            itemValues.put("title", u.channelPost().chat().title());
-                            //itemValues.put("location", u.channelPost().location().toString());
-                            System.out.println(itemValues);
-                            PutItem.writeToDynamoDB(itemValues);
 
+                            if (u.channelPost() != null) {
+                                Map<String, String> itemValues = new HashMap<>();
+                                System.out.println("update process channelpost");
+                                itemValues.put("channelmessagetext", u.channelPost().text());
+                                itemValues.put("username", u.channelPost().chat().username());
+                                itemValues.put("title", u.channelPost().chat().title());
+                                //itemValues.put("location", u.channelPost().location().toString());
+                                //System.out.println(itemValues);
+                                //PutItem.writeToDynamoDB(itemValues);
+                            }
                         }
                         // process updates
                         return UpdatesListener.CONFIRMED_UPDATES_ALL;
